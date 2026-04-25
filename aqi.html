@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India AQI Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>🌍 India AQI Tracker</h1>
+  <p>Live Air Quality + Awareness</p>
+</header>
+
+<section>
+<h2>📍 Major Cities AQI</h2>
+
+<div class="grid">
+<div class="card vpoor"><h3>Delhi</h3><p>AQI: 320</p><p>Very Poor</p></div>
+<div class="card mod"><h3>Mumbai</h3><p>AQI: 140</p><p>Moderate</p></div>
+<div class="card poor"><h3>Kolkata</h3><p>AQI: 210</p><p>Poor</p></div>
+<div class="card good"><h3>Chennai</h3><p>AQI: 90</p><p>Satisfactory</p></div>
+<div class="card poor"><h3>Patna</h3><p>AQI: 280</p><p>Poor</p></div>
+</div>
+</section>
+
+<section>
+<h2>📊 AQI Scale</h2>
+<ul>
+<li>0–50 → Good</li>
+<li>51–100 → Satisfactory</li>
+<li>101–200 → Moderate</li>
+<li>201–300 → Poor</li>
+<li>301–400 → Very Poor</li>
+<li>401–500 → Severe</li>
+</ul>
+</section>
+
+<section>
+<h2>📈 AQI Trend</h2>
+<canvas id="chart"></canvas>
+</section>
+
+<section class ="flex-section">
+<!--left side -->
+<div class="text">
+   <h2>⚠️ Causes of Pollution</h2>
+   <ul>
+     <li>Vehicle emissions</li>
+     <li>Factory smoke</li>
+     <li>Crop burning</li>
+     <li>Construction dust</li>
+     <li>Garbage burning</li>
+     </ul>
+</div>
+
+
+
+<!--left side -->
+    <h2>🧠 Health Effects</h2>
+    <ul>
+    <li>Breathing problems</li>
+    <li>Asthma</li>
+    <li>Heart issues</li>
+    <li>Eye irritation</li>
+    </ul>
+</div>
+
+<!--right side -->
+<div class="image">
+  <image src="images/aqi.jpeg" alt="AQI Image">
+</div>  
+</section>
+
+<section>
+<h2>🏛️ Government Actions</h2>
+<ul>
+<li>GRAP (Delhi)</li>
+<li>Electric vehicles promotion</li>
+<li>Emission control laws</li>
+<li>Ban on stubble burning</li>
+</ul>
+</section>
+
+<section>
+<h2>👥 What You Can Do</h2>
+<ul>
+<li>Use public transport</li>
+<li>Wear mask</li>
+<li>Plant trees</li>
+<li>Avoid burning waste</li>
+</ul>
+</section>
+
+<footer>
+🌿 Let’s Breathe Clean, Live Green
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
