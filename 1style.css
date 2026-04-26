@@ -11,68 +11,110 @@ body {
         background-size: 1700px auto, cover;
         background-repeat: no-repeat, no-repeat;
 }
-nav{
-    text-align: center;
-    padding-bottom: 50px;
-    width: 100%;
-    transform: translate(0%, -90%);
-    font-weight: bold;
-}
-nav>a{
-    font-family: Arial;
-    text-align: right;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: #4ca7a7;
-    width: 30px;
-    border-radius: 10px;
-    transition: 0.4s ease-in-out;
-}
-nav a:hover {
-   background-color: rgb(36, 129, 129);
-   color: rgb(217, 247, 217);
-   font-size: 18px;
-   padding-left: 10px;
-   position: relative;
-   top: 5px;
-}
-header h1 {
-    color: rgb(142, 25, 226);
+.tophead{
+    display: flex;
+    justify-content: space-between;
     padding-top: 20px;
+
+}
+.tophead > h1 {
+    color: rgb(142, 25, 226);
     padding-left: 10px;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
 }
-p+button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    left: auto;
-}
-.lo{
-    text-align: right;
-    position: relative;
-    bottom: 105px;
-    right: 20px;
-}
-h2 a{
+.tophead > h2 >a{
     font-size: 30px;
+    padding-right: 10px;
     transition: 0.3s ease-in-out;
     border-radius: 20px;
     color: #386e70;
 }
-h2 a:hover {
+.tophead > h2 >a:hover {
     color: rgb(206, 237, 236);
     background-color: rgb(99, 161, 160);
     padding-top: 5PX;
-    padding-RIGHT: 10px;
+    padding-RIGHT: 20px;
     padding-left: 10px;
     padding-bottom: 5px;
-
     border-style: dashed;
     font-size: 30px;
 }
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+/* .nav-links:hover {
+    padding-left: 10px;
+} */
+
+.nav-links>a{
+    width: auto;
+    font-family: Arial;
+    font-size: large;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #4ca7a7;
+
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+}
+.nav-links>a:hover {
+   background-color: rgba(36, 129, 129, 0.707);
+   color: rgb(217, 247, 217);
+   font-size: 20px;
+   padding-left: 10px;
+   position: relative;
+   top: 5px;
+}
+
+
+/* use hamburger */
+.hamburger { 
+    display: none; 
+    cursor: pointer; 
+    flex-direction: column; 
+    gap: 5px; 
+    position: absolute;
+    right: 20px;
+    z-index: 100;
+    
+}
+.hamburger span { 
+    width: 25px; 
+    height: 3px; 
+    background: black; 
+}
+
+/* Mobile View (Screens smaller than 768px) */
+@media screen and (max-width: 750px) {
+  .hamburger { display: flex; }  
+
+  .nav-links {
+    display: none; /* Hide full menu by default on mobile */
+    flex-direction: column;
+    align-items: self-end;
+    position: absolute;
+    /* top: 60px; */
+    right: 0;
+    width: auto;
+    height: 250px;
+    padding-bottom: 5px;
+    background: #92c9d1b3;
+    border-radius: 60px 0px 0px 60px ;
+    text-align: center;
+  }
+
+  /* Add a class to show the menu when clicked */
+  .nav-links.active { display: flex; }
+}
+
+
 .glo-temp{
     background-image: url(hot_earth.jpg);
     background-size: 700px;
@@ -261,25 +303,12 @@ h2 a:hover {
     transform: translateY(1px);
     box-shadow: 0 10px 10px rgb(147, 98, 15);
 }
-
-/* 🏔️ Glacier Melt(__Ton/yr) */
- /* #top{
-    display: flex;
-    flex-direction: column;
-    position: relative;
+.div{
+    height: 25vh;
 }
-.para{
-    width: 80%;
-    background-color: #1b929f55;
-    margin: 2% 10%;
-    font-size: large;
-    position: absolute;
-}
-.para h2{    
-    font-weight: bold;
-} */
 
-/* Container: 3 columns on desktop, 1 on mobile */
+/* inside code page */
+
 #top {
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
@@ -290,11 +319,11 @@ h2 a:hover {
 }
 
 .para {
-    background: #a7d7dc8d;
+    background: #a1ced2a0;
     padding: 30px;
     border-radius: 16px;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.04);
     transition: transform 0.5s ease, box-shadow 0.9s ease;
     display: flex;
     flex-direction: column;
@@ -413,6 +442,6 @@ form{
 .form-footer{
     padding-top: 30px;
 }
-span a{
-    padding: 5px;
+.form-footer span{
+    padding-left: 45px;
 }
