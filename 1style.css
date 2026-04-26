@@ -43,11 +43,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 30px;
-    padding-bottom: 80px;
+    margin: 30px;
+    margin-bottom: 80px;
     text-align: center;
-
 }
+/* .nav-links:hover {
+    padding-left: 10px;
+} */
+
 .nav-links>a{
     width: auto;
     font-family: Arial;
@@ -69,14 +72,6 @@ body {
    position: relative;
    top: 5px;
 }
-
-/* p+button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    left: auto;
-} */
 
 
 /* use hamburger */
