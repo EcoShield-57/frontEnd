@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth System</title>
+  <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
 
+<div class="container">
+
+  <!-- SIGNUP -->
+  <h2>Signup</h2>
+  <input type="email" id="signupEmail" placeholder="Enter Email"><br>
+  <input type="password" id="signupPassword" placeholder="Enter Password"><br>
+  <button onclick="signup()">Signup</button>
+
+  <hr>
+
+  <!-- LOGIN -->
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Enter Email"><br>
+  <input type="password" id="password" placeholder="Enter Password"><br>
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+
+  <!-- EXTRA -->
+  <div id="extra" style="display:none;">
+    <h3>Select Your Details</h3>
+
+    <select id="country">
+      <option value="">Select Country</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+    </select>
+
+    <select id="state">
+      <option value="">Select State</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Delhi">Delhi</option>
+    </select>
+
+    <button onclick="saveDetails()">Continue</button>
+  </div>
+
+</div>
+
+<script src="scriptlogin.js"></script>
+</body>
+</html>
