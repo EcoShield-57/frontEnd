@@ -1,50 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Auth System</title>
-  <link rel="stylesheet" href="stylelogin.css">
+    <meta charset="UTF-8"><title>Login/Sign Up</title>
+    <link rel="stylesheet" href="login_style.css">
 </head>
 <body>
+    <div class="auth-card" id="authCard">
+    <!-- Login Form -->
+        <div class="box login">
+            <form action="#">
+                <h2>Welcome Back</h2>
+                <input type="email" name="email" placeholder="Email" autocomplete="username" required>
+                <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+                <button type="submit" class="btn">Sign In</button>
+                <p>New here? <a href="#" onclick="toggleForm()">Create account</a></p>
+            </form>
+        </div>
 
-<div class="container">
-
-  <!-- SIGNUP -->
-  <h2>Signup</h2>
-  <input type="email" id="signupEmail" placeholder="Enter Email"><br>
-  <input type="password" id="signupPassword" placeholder="Enter Password"><br>
-  <button onclick="signup()">Signup</button>
-
-  <hr>
-
-  <!-- LOGIN -->
-  <h2>Login</h2>
-  <input type="email" id="email" placeholder="Enter Email"><br>
-  <input type="password" id="password" placeholder="Enter Password"><br>
-  <button onclick="login()">Login</button>
-
-  <p id="msg"></p>
-
-  <!-- EXTRA -->
-  <div id="extra" style="display:none;">
-    <h3>Select Your Details</h3>
-
-    <select id="country">
-      <option value="">Select Country</option>
-      <option value="India">India</option>
-      <option value="USA">USA</option>
-    </select>
-
-    <select id="state">
-      <option value="">Select State</option>
-      <option value="Bihar">Bihar</option>
-      <option value="Delhi">Delhi</option>
-    </select>
-
-    <button onclick="saveDetails()">Continue</button>
-  </div>
-
-</div>
-
-<script src="scriptlogin.js"></script>
+        <!-- Signup Form -->
+        <div class="box signup">
+            <form action="#">
+                <h2>Get Started</h2>
+                <input type="text" name="fullname" placeholder="Full Name" autocomplete="name" required>
+                <input type="email" name="email" placeholder="Email" autocomplete="username" required>
+                <input type="password" name="password" placeholder="Password" autocomplete="new-password" required>
+                <button type="submit" class="btn">Sign Up</button>
+                <p>Already have an account? <a href="#" onclick="toggleForm()">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

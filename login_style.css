@@ -1,0 +1,77 @@
+body { 
+    font-family: sans-serif;     
+    background-image: 
+    url(hand_earth.png),
+    linear-gradient(180deg, #A9D8DD 0%, #92C9D1 100%);
+    background-position: 50% 100px, 0 0; 
+    background-size: 1700px auto, cover;
+    background-repeat: no-repeat, no-repeat; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0; 
+}
+.auth-card { 
+    background: #7ebbbab5; 
+    padding: 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    width: 100%; 
+    max-width: 400px; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.box { 
+    transition: 0.4s ease-in-out; 
+}
+.box.signup { 
+    display: none; 
+} /* Initially hidden */
+
+form > h2 { 
+    margin-bottom: 1.5rem; 
+    color: #333; 
+    text-align: center; 
+}
+input { 
+    width: 100%; 
+    padding: 12px; 
+    margin: 8px 0; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+}
+input:focus { 
+    border-color: #9bb9da; 
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.1); 
+}
+
+.btn { 
+    width: 100%; 
+    padding: 12px; 
+    background: #29737c; 
+    color: white; border: none; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    margin-top: 10px; 
+}
+.btn:hover { 
+    background: #0056b3; 
+}
+
+p { 
+    text-align: center; 
+    font-size: 14px; 
+    margin-top: 1.5rem; 
+}
+a { 
+    color: #007bff; 
+    text-decoration: none; 
+    font-weight: 600; 
+}
