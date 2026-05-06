@@ -9,15 +9,17 @@ app = Flask(__name__)
 CORS(app)
 bcrypt = Bcrypt(app)
 
-# ================= DB =================
+# ================= DATABASE =================
+DB_NAME = "database.db"
+
 def get_db():
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row
     return conn
 
 def create_table():
     conn = get_db()
-    conn.execute('''
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             email TEXT UNIQUE,
@@ -25,21 +27,29 @@ def create_table():
             country TEXT,
             state TEXT
         )
-    ''')
+    """)
     conn.commit()
     conn.close()
 
-create_table()
+# SAFE INIT (Render compatible)
+with app.app_context():
+    create_table()
+
+# ================= HOME =================
+@app.route("/")
+def home():
+    return "Backend running 🚀"
 
 # ================= SIGNUP =================
 @app.route("/signup", methods=["POST"])
 def signup():
-    data = request.json
+    data = request.get_json()
+
     email = data.get("email")
     password = data.get("password")
 
     if not email or not password:
-        return jsonify({"message": "Please enter email and password"}), 400
+        return jsonify({"message": "Email and password required"}), 400
 
     hashed = bcrypt.generate_password_hash(password).decode("utf-8")
 
@@ -52,21 +62,18 @@ def signup():
         conn.commit()
         conn.close()
 
-        # ⚠ IMPORTANT: matches your JS alert
         return jsonify({"message": "User registered"})
-
+    
     except sqlite3.IntegrityError:
         return jsonify({"message": "User already exists"})
 
 # ================= LOGIN =================
 @app.route("/login", methods=["POST"])
 def login():
-    data = request.json
+    data = request.get_json()
+
     email = data.get("email")
     password = data.get("password")
-
-    if not email or not password:
-        return jsonify({"message": "Please enter email and password"}), 400
 
     conn = get_db()
     user = conn.execute(
@@ -75,7 +82,6 @@ def login():
     ).fetchone()
     conn.close()
 
-    # ⚠ EXACT message match required for your JS
     if user and bcrypt.check_password_hash(user["password"], password):
         return jsonify({"message": "Login successful"})
     else:
@@ -84,7 +90,8 @@ def login():
 # ================= SAVE DETAILS =================
 @app.route("/save-details", methods=["POST"])
 def save_details():
-    data = request.json
+    data = request.get_json()
+
     email = data.get("email")
     country = data.get("country")
     state = data.get("state")
@@ -126,18 +133,13 @@ def export_excel():
     conn.close()
 
     df = pd.DataFrame(users, columns=["email", "country", "state"])
+
     file_path = os.path.join(os.getcwd(), "users.xlsx")
     df.to_excel(file_path, index=False)
 
     return send_file(file_path, as_attachment=True)
 
-# ================= HOME =================
-@app.route("/")
-def home():
-    return "Backend running 🚀"
-
 # ================= RUN =================
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT",5000))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
