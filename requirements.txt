@@ -1,4 +1,7 @@
-flask 
-flask-cors
-flask-bcrypt
-gunicorn
+flask==3.0.0
+gunicorn==21.2.0
+flask-cors==4.0.0
+flask-bcrypt==1.0.1
+bcrypt==4.0.1
+pandas==2.2.2
+openpyxl==3.1.2
